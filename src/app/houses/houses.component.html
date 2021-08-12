@@ -1,0 +1,25 @@
+<app-menu></app-menu>
+<div class="container">
+    <div class="col-md-12">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div class="mx-auto">
+                    <h1 class="display-6 text-center colorTitle"> Members per House</h1>
+                </div>
+            </mat-card-header>
+            <mat-card-content></mat-card-content>
+        </mat-card>
+        <div  *ngFor="let data of this.listCount">
+            -----------------------------------------------------
+            <h3 class="colorNameHouse"> {{data.house}} : {{data.count}} </h3> 
+                   
+                     <div *ngFor="let item of this.houseMagic">
+                        
+                        <div *ngIf="item.house === data.house ">
+                                {{item.name}}
+                                 
+                        </div>
+                    </div> 
+         </div>                   
+    </div>
+</div>

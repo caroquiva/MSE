@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
+.title{
+    background-color: midnightblue;
+    height: 50px;  
+}
+.titleColor {
+    color: white;
+}
+
+.picture{
+    width: 500px;
+    height: 350px;
+    display:block;
+    margin:auto;
+    margin-top: 5px;
+}
