@@ -4,11 +4,8 @@
  * muestra la lista de los miembros al seleccionar la casa a la que pertenecen
  */
 import { Component, Input, OnInit, Output } from "@angular/core";
-import {Router} from "@angular/router";
 import { HouseModel } from "src/models/entities/house-model";
 import { ApiService } from "../services/api-services.service";
-import {MatTableDataSource} from '@angular/material/table';
-
 
 @Component({
     selector: 'app-list-members',
@@ -21,17 +18,17 @@ export class ListMembersComponent implements OnInit{
     @Output() member: HouseModel = new HouseModel();
     listHouse: any[]=[];
     listMembers: any[]=[];
-    dataSource:MatTableDataSource<any>;
     displayedColumns: string[] = ['Picture','Name','Blood Status','Gender'];
+    objectKeys = Object.keys; 
+    shearName: string='';
 
     constructor(
         private api: ApiService
     ){
-        this.dataSource=new MatTableDataSource<any>(this.listMembers);
     }
 
     ngOnInit(){
-        this.getHouse()
+        this.getHouse();       
     }
     /**
      * se hace llamado al servicio Api, en este caso la api que muestra todos los miembros  
@@ -74,22 +71,7 @@ export class ListMembersComponent implements OnInit{
                         ancestry: element.ancestry
                     })
                 });
-            })
-            this.dataSource=new MatTableDataSource<any>(this.listMembers);
+            })           
         }
     }
-    /**
-     * 
-     * @param event 
-     * filtra los datos de la tabla por nombre
-     */
-    applyFilter(event: Event) {
-        
-        const filterValue = (event.target as HTMLInputElement).value;
-        this.dataSource.filter = filterValue.trim().toLowerCase();
-
-        if (this.dataSource.paginator) {
-        this.dataSource.paginator.firstPage();
-        }
-    }
-    }
+}

@@ -3,11 +3,10 @@
  * 
  * realiza clasificación por nombre o por apellido
  */
-import { Component, Input, OnInit, Output } from "@angular/core";
+import { Component,  OnInit, Output } from "@angular/core";
 import { SortingModel } from "src/models/entities/sorting-model";
 import { ApiService } from "../services/api-services.service";
 import swal from 'sweetalert2';
-import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
     selector: 'app-sorting',
@@ -20,14 +19,13 @@ export class SortingComponent implements OnInit{
     @Output() sorting: SortingModel = new SortingModel();
     listData: any[]=[];
     auxName: string='';
-    listSorting: any[]=[];
-    dataSource:MatTableDataSource<any>;
+    listSorting: any[]=[];   
     displayedColumns: string[] = ['Picture','Name','Blood Status','Gender'];
 
     constructor(
         private api: ApiService
     ){
-        this.dataSource=new MatTableDataSource<any>(this.listSorting);
+       
     }
 
     ngOnInit(){
@@ -93,12 +91,8 @@ export class SortingComponent implements OnInit{
                 if(this.sorting.data.charAt(0).toUpperCase() + this.sorting.data.slice(1) === this.auxName[0]){
                     this.listSorting.push(element)
                 }
-                
-               
             }
-            
         })
-        this.dataSource=new MatTableDataSource<any>(this.listSorting);
     }
      /**
      * se separa el nombre y el apellido el atributo name, en este caso se obtiene el apellido
@@ -121,7 +115,7 @@ export class SortingComponent implements OnInit{
                 
             }
         })
-        this.dataSource=new MatTableDataSource<any>(this.listSorting);
+       
     }
     /**
      * se limpiar los datos para inicializar otra busqueda

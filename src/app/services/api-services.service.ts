@@ -7,7 +7,7 @@
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { HouseModel } from "src/models/entities/house-model";
+
 
 @Injectable({
     providedIn: "root"

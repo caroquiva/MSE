@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListMembersComponent } from './list-members/list-members.component';
 import { FormsModule, NgModel } from '@angular/forms';
 import { SortingComponent } from './sorting/sorting.component';
+import { FiltersByPipes } from './pipes/filter.pipe';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SortingComponent } from './sorting/sorting.component';
     HousesComponent,
     MenuComponent,
     ListMembersComponent,
-    SortingComponent
+    SortingComponent,
+    FiltersByPipes
   ],
   imports: [
     CommonModule,

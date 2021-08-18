@@ -39,46 +39,23 @@
            
          </div>
     </div>
-    <div *ngFor="let item of this.listSorting">
-        <div *ngIf="this.listSorting.indexOf(item) === this.listSorting.length -1">
-           <div class="mat-elevation-z8">
-               <table mat-table [dataSource]="dataSource" matSort>
-   
-                   <!-- ID Column -->
-                   <ng-container matColumnDef="Picture" >
-                       <th mat-header-cell *matHeaderCellDef mat-sort-header class="negrita tamañoColumna">Picture </th>
-                       <td mat-cell *matCellDef="let row;let i = index;">
-                           <img src="{{row.image}}" > </td>
-                   </ng-container>
-   
-   
-                   <!-- Name Column -->
-                   <ng-container matColumnDef="Name" >
-                       <th mat-header-cell *matHeaderCellDef mat-sort-header class="negrita tamañoColumna"> Name </th>
-                       <td mat-cell *matCellDef="let row">{{row.name}}  </td>
-                   </ng-container>
-
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="Blood Status" >
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="negrita tamañoColumna"> Blood Status </th>
-                        <td mat-cell *matCellDef="let row">{{row.ancestry}}  </td>
-                    </ng-container>
-   
-                   <!-- Progress Column -->
-                   <ng-container matColumnDef="Gender" >
-                       <th mat-header-cell *matHeaderCellDef mat-sort-header class="negrita tamañoColumna" >Gender</th>
-                       <td mat-cell *matCellDef="let row"> {{row.gender}} </td>
-                   </ng-container> 
-          
-
-                   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>                 
-   
-            
-               </table>    
-           
-           </div>
-        </div>
-        </div>
+    
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col" *ngFor="let titulo of displayedColumns">
+                        {{titulo}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let fila of this.listSorting">
+                    <th><img src="{{fila.image}}" > </th>                   
+                    <th>{{fila.name}} </th>
+                    <th>{{fila.ancestry}}</th>
+                    <th>{{fila.gender}}</th>
+                </tr>
+            </tbody>
+        </table>
     
 </div>

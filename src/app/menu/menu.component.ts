@@ -5,7 +5,6 @@
  */
 import { Component, OnInit } from '@angular/core';
 
-import { ItemMenu } from './itemMenu';
 
 @Component({
   selector: 'app-menu',
